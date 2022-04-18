@@ -11,8 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kyo144/wehelp-team.git"
+    "url": "git+https://github.com/kyo144/wehelp-team-15.git"
   },
+  "homepage": "https://kyo144.github.io/wehelp-team-15/",
   "keywords": [],
   "author": "",
   "license": "ISC",
