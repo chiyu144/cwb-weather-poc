@@ -5,6 +5,7 @@
 - Vanilla JavaScript
 - HTML5 / CSS3
 - Webpack
+- ESLint
 - NPM
 
 #### Quick Start (For Developers)

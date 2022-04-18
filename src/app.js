@@ -1,7 +1,7 @@
 import { getRainfallApi } from './apis.js';
 import './styles/global.css';
 
-const getRainfall = async() => {
+const getRainfall = async () => {
   const res = await getRainfallApi();
   return res.records;
 };
