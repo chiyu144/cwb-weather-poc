@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/wehelp-team-15/',
+    // publicPath: '/wehelp-team-15/',
     clean: true
   },
   devtool: 'inline-source-map',
@@ -53,5 +53,8 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
+  plugins: [new HtmlWebpackPlugin({
+    template: './src/index.html',
+    favicon: './src/static/favicon.png'
+  })]
 };
