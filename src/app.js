@@ -1,12 +1,11 @@
-import { getRainfallApi, getWeeklyApi } from './apis.js';
+import { getHoursApi, getWeeklyApi } from './apis.js';
 import { rendenWeekly } from './weeklyArea.js';
+import { renderHours } from './hoursArea.js';
 import './styles/global.css';
 import './styles/weeklyArea.css';
 
-
-
-const getRainfall = async () => {
-  const res = await getRainfallApi();
+const getHours = async () => {
+  const res = await getHoursApi();
   return res.records;
 };
 
@@ -15,10 +14,9 @@ const getWeekly = async () => {
   return res.records;
 };
 
-
 document.addEventListener('DOMContentLoaded', async () => {
-  const rainfallRecords = await getRainfall();
-  console.log('test', rainfallRecords);
+  const hoursRecords = await getHours();
+  renderHours(hoursRecords);
   const weeklyRecords = await getWeekly();
-  rendenWeekly(weeklyRecords,'臺北市') ;
+  rendenWeekly(weeklyRecords, '臺北市');
 });
