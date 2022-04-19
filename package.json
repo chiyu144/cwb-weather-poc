@@ -43,6 +43,7 @@
     "webpack-dev-server": "^4.8.1"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.9"
+    "@babel/runtime": "^7.17.9",
+    "chart.js": "^3.7.1"
   }
 }
