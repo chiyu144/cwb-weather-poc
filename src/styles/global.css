@@ -61,6 +61,8 @@ a {
   flex-direction: column;
   position: relative;
 }
-#main > h1 {
-  color: var(--color-violet-100);
+.container {
+  width: 100%;
+  margin: 100px auto;
+  max-width: 360px;
 }

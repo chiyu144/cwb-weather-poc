@@ -13,6 +13,10 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
+    open: true,
+    devMiddleware: {
+      writeToDisk: true
+    },
     static: {
       directory: path.join(__dirname, 'dist')
     }
@@ -21,7 +25,7 @@ module.exports = {
     rules: [
       {
         test: /\.html$/i,
-        loader: 'html-loader',
+        use: ['html-loader']
       },
       {
         test: /\.css$/i,
@@ -39,12 +43,12 @@ module.exports = {
         }
       },
       {
-        test : /\.(png|jpe?g|gif)$/i,
-        use : {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: {
           loader: 'url-loader',
           options: {
             name: '[name].[hash].[ext]',
-            limit : 8192,
+            limit: 8192,
             outputPath: 'assets',
             fallback: require.resolve('file-loader')
           }
@@ -57,10 +61,10 @@ module.exports = {
           options: {
             name: '[name].[hash].[ext]',
             outputPath: 'assets'
-          } 
+          }
         }
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })]
 };
