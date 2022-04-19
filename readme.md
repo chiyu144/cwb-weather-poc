@@ -10,6 +10,7 @@
 
 #### Quick Start (For Developers)
 1. Fork this repository and clone to your local machine.
-2. Use command: `npm install` (Install everything we need.)
-3. Use command: `git checkout develop` (Switch to develop branch.)
-4. Use command: `npm run dev` (Support Hot Reload.)
+2. Use command: `npm install`
+3. Use command: `npm run build`
+4. Use command: `git checkout develop`
+5. Use command: `npm run dev`
