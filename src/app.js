@@ -1,14 +1,24 @@
-import { getHoursWeatherApi } from './apis.js';
-import { renderHoursWeather } from './hours.js';
+import { getRainfallApi, getWeeklyApi } from './apis.js';
+import { rendenWeekly } from './weeklyArea.js';
 import './styles/global.css';
-import './styles/hours.css';
+import './styles/weeklyArea.css';
 
-const getHoursWeather = async () => {
-  const res = await getHoursWeatherApi();
+
+
+const getRainfall = async () => {
+  const res = await getRainfallApi();
   return res.records;
 };
 
+const getWeekly = async () => {
+  const res = await getWeeklyApi();
+  return res.records;
+};
+
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const hoursWeatherRecords = await getHoursWeather();
-  renderHoursWeather(hoursWeatherRecords);
+  const rainfallRecords = await getRainfall();
+  console.log('test', rainfallRecords);
+  const weeklyRecords = await getWeekly();
+  rendenWeekly(weeklyRecords,'臺北市') ;
 });

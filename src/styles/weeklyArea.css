@@ -1,0 +1,32 @@
+.block-week
+{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    opacity: 0.85;
+    max-width: 360px;
+}
+#weeklyUp{
+    display: grid;
+    grid-auto-flow: row;
+}
+#weeklyBoxUp,#weeklyBoxMiddle,#weeklyBoxDown{
+    display: grid;
+    grid-auto-flow: column;
+    margin-bottom: 10px;
+    justify-items: center;
+}
+
+
+#myChart{
+    width:350px;
+    height:150px;
+}
+
+.dayWx{
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: 50% 50%;
+    min-height: 20px;
+    width:100%;
+}
