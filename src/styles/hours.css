@@ -1,0 +1,16 @@
+.block-hours {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+.block-hours > div {
+  flex: 1;
+  height: 100%;
+  text-align: center;
+  letter-spacing: .2rem;
+  border-radius: 5px;
+  color: var(--color-white);
+  /* background-color: var(--color-violet-800); */
+}

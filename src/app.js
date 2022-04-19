@@ -1,12 +1,14 @@
-import { getRainfallApi } from './apis.js';
+import { getHoursWeatherApi } from './apis.js';
+import { renderHoursWeather } from './hours.js';
 import './styles/global.css';
+import './styles/hours.css';
 
-const getRainfall = async () => {
-  const res = await getRainfallApi();
+const getHoursWeather = async () => {
+  const res = await getHoursWeatherApi();
   return res.records;
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const rainfallRecords = await getRainfall();
-  console.log('test', rainfallRecords);
+  const hoursWeatherRecords = await getHoursWeather();
+  renderHoursWeather(hoursWeatherRecords);
 });
