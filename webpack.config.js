@@ -2,14 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app.js', './src/apis.js'],
+  entry: ['./src/app.js'],
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/wehelp-team-15/'
+    publicPath: '/wehelp-team-15/',
+    clean: true
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   devServer: {
     port: 3000,
     hot: true,
@@ -43,26 +44,12 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: {
-          loader: 'url-loader',
-          options: {
-            name: '[name].[hash].[ext]',
-            limit: 8192,
-            outputPath: 'assets',
-            fallback: require.resolve('file-loader')
-          }
-        }
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource'
       },
       {
-        test: /\.(svg|mp3|ttf|woff2|woff|eot)$/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash].[ext]',
-            outputPath: 'assets'
-          }
-        }
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource'
       }
     ]
   },
