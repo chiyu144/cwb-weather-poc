@@ -1,6 +1,7 @@
-import { getHoursApi, getWeeklyApi, getForecastTwoDaysApi } from './apis.js';
+import { getHoursApi, getWeeklyApi, getDaysApi } from './apis.js';
 import { rendenWeekly } from './weeklyArea.js';
 import { renderHours } from './hoursArea.js';
+import { renderDays } from '/daysArea.js';
 import './styles/global.css';
 import './styles/weeklyArea.css';
 
@@ -14,13 +15,10 @@ const getWeekly = async () => {
   return res.records;
 };
 
-const getForecastTwoDays = async (location) =>{
-  let params, records, data;
-  params = {locationName:location, elementName:['Wx', 'T']};
-  const res = await getForecastTwoDaysApi(params);
-  records = res.records.locations[0].location[0].weatherElement;
-  data = {"Wx":records[0], "T":records[1]};
-  return data;
+const getDays = async (location) =>{
+  let params = {locationName:location, elementName:['Wx', 'T']};
+  const res = await getDaysApi(params);
+  return res.records;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -28,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderHours(hoursRecords);
   const weeklyRecords = await getWeekly();
   rendenWeekly(weeklyRecords, '臺北市');
+  // arg can be replaced with any valid location Name
+  const DaysRecords = await getDays("大安區");
+  renderDays(DaysRecords);
 });
-
-await getForecastTwoDays();
