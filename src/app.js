@@ -5,6 +5,7 @@ import { renderDays } from '/daysArea.js';
 import './styles/global.css';
 import './styles/weeklyArea.css';
 import './styles/hoursArea.css';
+import './styles/daysArea.css';
 
 const getHours = async () => {
   const res = await getHoursApi();
