@@ -12,7 +12,84 @@
 <body>
   <div id="main">
     <div class="container">
-      <div class="block block-search"></div>
+      <div class="block block-search">
+        <!--Nav 導覽列-->
+
+        <div class="top">
+          <div class="top2">
+            <div class="top_left_logo" style="cursor: pointer;"><a href=""
+                style="text-decoration:none;color:#000000">氣象資訊 </a>
+            </div>
+            <div class="top_right">
+              <div class="top_right_item" style="cursor: pointer;"> <img class="hamburger"
+                  src="/src/static/icon_hamburger.png" ;>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!--標題 Search... -->
+        <div class="head">
+          <div class="head2">
+            <div class="head_middle">
+              <div class="head_middle_text1">台北市</div>
+              <div class="head_middle_text2">wehelp-team-15</div>
+              <div class="head_middle_search_box">
+                <input class="head_middle_search_input" placeholder="Search..." id='AttrationKeyword'>
+                <button class="head_middle_search_button" style="cursor: pointer;" type="button"><img
+                    src="/src/static/icon_search.png"> </button>
+              </div>
+            </div>
+          </div>
+          <div class="headimg"><img class="headimg" src="/src/static/101.png" style="border-radius: 5px 5px 5px 5px;">
+          </div>
+        </div>
+
+
+
+        <!--Ozone data-->
+        <div class="block block-ozone"
+          style="background-color: #f8f8f8 ;padding-bottom: 10px ;border-radius: 5px 5px 5px 5px;">
+
+          <div style="margin: 5px 0px auto;text-align: center;color: var(--color-gray-700); padding-top: 5px; color: var(--color-violet-800);"> 近月臭氧含量  <span style="font-size: 4px;">  (mg/L)</span>
+          </div>
+          <div id="chartX" class="result-xy">
+
+            <div class="result-bg" data-month="1">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+            <div class="result-bg" data-month="2">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+            <div class="result-bg" data-month="3">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+            <div class="result-bg" data-month="4">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+            <div class="result-bg" data-month="5">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+            <div class="result-bg" data-month="6">
+              <span class="result-bar" style="height: 50%"><s title="value"></s></span>
+            </div>
+
+
+            <div class="arrowbox">
+              <div class="img_leftArrow" id="img_leftArrow" input type="button" value="CLICK"> <img
+                  src="/src/static/btn_leftArrow.png " style="height: 26px;">
+              </div>
+              <div class="img_rightArrow" id="img_rightArrow" input type="button" value="CLICK"><img
+                  src="/src/static/btn_rightArrow.png " style="height: 26px;">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
       <div class="block block-hours"></div>
       <div class="block block-days" onmouseover="opButton('block');" onmouseout="opButton('none')">
         <div id="left-btn" onclick="btnClick('left')"></div>

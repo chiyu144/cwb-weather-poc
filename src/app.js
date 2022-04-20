@@ -36,8 +36,6 @@ document.addEventListener('DOMContentLoaded', async () => {
  
 
 // Jay getOzone part
-import { getOzoneApi } from './apis.js';
-import './styles/jay.css';
 
 
 const getOzone = async () => {
