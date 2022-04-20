@@ -1,14 +1,5 @@
 import './styles/weeklyArea.css';
 import Chart from 'chart.js/auto';
-import sunDay from './static/sun.gif';
-import sunRain from './static/sunRain.gif';
-import sunCloud from './static/sunCloud.gif';
-import cloudDay from './static/cloud.png';
-import storm from './static/storm.gif';
-import littleRain from './static/littleRain.gif';
-import rainDay from './static/rain.gif';
-import heavyRain from './static/hr.gif';
-import snow from './static/lightSnow.gif';
 
 const lineCharDay = [];
 const minT = [];
@@ -43,24 +34,24 @@ export function rendenWeekly (weeklyRecords, cityName) {
   const weeklyAll = weeklyRecords.locations[0].location;
   for (let i = 0; i < weeklyAll.length; i++) {
     const WeeklyData = weeklyRecords.locations[0].location[i];
-    if (WeeklyData.locationName == cityName) {
+    if (WeeklyData.locationName === cityName) {
       const WeeklyCityData = weeklyRecords.locations[0].location[i].weatherElement;
       for (let m = 0; m < WeeklyCityData.length; m++) {
-        if (WeeklyCityData[m].elementName == 'MinT') {
+        if (WeeklyCityData[m].elementName === 'MinT') {
           for (let j = 0; j < WeeklyCityData[m].time.length; j++) {
             lineCharDay.push(WeeklyCityData[m].time[j].startTime.split(' ')[0].split('-')[2]);
             const WeelyDate = new Date(WeeklyCityData[m].time[j].startTime.replace(/-/g, '/'));
             const WeelyDay = WeelyDate.getDay();
-            if (j % 2 != 0) {
+            if (j % 2 !== 0) {
               const weeklyDate = document.createElement('div');
               weeklyDate.className = 'weeklyDate';
               const weeklyDay = document.createElement('div');
               weeklyDay.className = 'weeklyDay';
-              if (j == 1) {
+              if (j === 1) {
                 weeklyDate.textContent = '今';
               } else {
                 weeklyDate.textContent = WeeeklyDayList[WeelyDay];
-                if ((WeeeklyDayList[WeelyDay] == '六') || (WeeeklyDayList[WeelyDay] == '日')) {
+                if ((WeeeklyDayList[WeelyDay] === '六') || (WeeeklyDayList[WeelyDay] === '日')) {
                   weeklyDate.style.color = 'red';
                 }
               }
@@ -72,37 +63,19 @@ export function rendenWeekly (weeklyRecords, cityName) {
             minT.push(WeeklyCityData[m].time[j].elementValue[0].value);
           }
         }
-        if (WeeklyCityData[m].elementName == 'MaxT') {
+        if (WeeklyCityData[m].elementName === 'MaxT') {
           for (let j = 0; j < WeeklyCityData[m].time.length; j++) {
             maxT.push(WeeklyCityData[m].time[j].elementValue[0].value);
           }
         }
-        if (WeeklyCityData[m].elementName == 'Wx') {
+        if (WeeklyCityData[m].elementName === 'Wx') {
           for (let j = 0; j < WeeklyCityData[m].time.length; j++) {
             wx.push(WeeklyCityData[m].time[j].elementValue[0].value);
-            if (j % 2 != 0) {
+            if (j % 2 !== 0) {
               const dayWx = document.createElement('div');
               dayWx.className = 'dayWx';
-              const dayWxValue = WeeklyCityData[m].time[j].elementValue[0].value;
-              if (dayWxValue == '晴天') {
-                dayWx.style.backgroundImage = `url("${sunDay}")`;
-              } else if ((dayWxValue == '晴時多雲') || (dayWxValue == '多雲時晴') || (dayWxValue == '多雲')) {
-                dayWx.style.backgroundImage = `url("${sunCloud}")`;
-              } else if ((dayWxValue == '多雲時陰') || (dayWxValue == '陰時多雲') || (dayWxValue == '陰天')) {
-                dayWx.style.backgroundImage = `url("${cloudDay}")`;
-              } else if (dayWxValue == ('雨天')) {
-                dayWx.style.backgroundImage = `url("${rainDay}")`;
-              } else if ((dayWxValue.includes('雨')) && (dayWxValue.includes('雷'))) {
-                dayWx.style.backgroundImage = `url("${storm}")`;
-              } else if ((dayWxValue.includes('暫雨')) && (!(dayWxValue.includes('雷')))) {
-                dayWx.style.backgroundImage = `url("${littleRain}")`;
-              } else if ((dayWxValue.includes('陣雨')) && (!(dayWxValue.includes('雷')))) {
-                dayWx.style.backgroundImage = `url("${heavyRain}")`;
-              } else if (dayWxValue.includes('雪')) {
-                dayWx.style.backgroundImage = `url("${snow}")`;
-              } else {
-                dayWx.style.backgroundImage = `url("${cloudDay}")`;
-              }
+              const dayWxValue = WeeklyCityData[m].time[j].elementValue[1].value;
+              dayWx.style.backgroundImage = `url(https://www.cwb.gov.tw/V8/assets/img/weather_icons/weathers/svg_icon/day/${dayWxValue}.svg)`;
               weeklyBoxDown.append(dayWx);
             }
           }
