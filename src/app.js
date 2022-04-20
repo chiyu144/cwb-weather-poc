@@ -19,7 +19,7 @@ const getWeekly = async () => {
 const getDays = async (location) =>{
   let params = {locationName:location, elementName:['Wx', 'T']};
   const res = await getDaysApi(params);
-  return res.records;
+  return res.records.locations[0].location[0].weatherElement;
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
