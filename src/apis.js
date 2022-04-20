@@ -5,7 +5,8 @@ export const getHoursApi = async () => {
   try {
     const apiUrl = new URL('/api/v1/rest/datastore/F-C0032-001', apiHost);
     apiUrl.searchParams.append('Authorization', apiAuth);
-    apiUrl.searchParams.append('locationName', '台北市');
+    apiUrl.searchParams.append('locationName', ['臺北市']);
+    apiUrl.searchParams.append('sort', 'time');
     const res = await fetch(apiUrl.toString(), { method: 'GET' });
     const data = await res.json();
     if (data.success === 'true') {
