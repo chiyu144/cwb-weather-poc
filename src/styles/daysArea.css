@@ -60,7 +60,7 @@
     top: 76px;
     left: 5px;
     display: none;
-    background-image: url("left.png");
+    background-image: url('../static/left.png');
     background-size: 25px 25px;
     cursor: pointer;
 }
@@ -71,7 +71,7 @@
     top: 76px;
     right: 5px;
     display: none;
-    background-image: url("right.png");
+    background-image: url('../static/right.png');
     background-size: 25px 25px;
     cursor: pointer;
 }

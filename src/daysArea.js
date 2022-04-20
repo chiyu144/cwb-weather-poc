@@ -54,9 +54,41 @@ class ForecastDays {
 
 const _forecastDays = new ForecastDays();
 let offset = 0;
-function renderDays (data) {
+export function renderDays (data) {
   if (data !== undefined) {
     _forecastDays.getData(data);
+    document.querySelector('.block-days').addEventListener('mouseover', function () {
+      const btnLeft = document.querySelector('#left-btn');
+      const btnRight = document.querySelector('#right-btn');
+
+      btnLeft.style.display = 'block';
+      btnRight.style.display = 'block';
+    });
+    document.querySelector('.block-days').addEventListener('mouseout', function () {
+      const btnLeft = document.querySelector('#left-btn');
+      const btnRight = document.querySelector('#right-btn');
+
+      btnLeft.style.display = 'none';
+      btnRight.style.display = 'none';
+    });
+    document.querySelector('#left-btn').addEventListener('click', function () {
+      if (offset > 0) {
+        offset--;
+      } else {
+        offset = 2;
+      }
+      removeElement();
+      renderDays(undefined);
+    });
+    document.querySelector('#right-btn').addEventListener('click', function () {
+      if (offset < 2) {
+        offset++;
+      } else {
+        offset = 0;
+      }
+      removeElement();
+      renderDays(undefined);
+    });
   }
   // ***ptr [day[[time], [temp]], ...]
   const dateAndTemp = getDaysDateTempData();
@@ -202,25 +234,7 @@ function getMaxMinTemp (data) {
   }
   return result;
 }
-// function weatherAverage (array) {
-//   const modeMap = {};
-//   let maxEl = array[0]; let maxCount = 1;
-//   for (let i = 0; i < array.length; i++) {
-//     const el = array[i];
-//     if (modeMap[el] == null) { modeMap[el] = 1; } else { modeMap[el]++; }
-//     if (modeMap[el] > maxCount) {
-//       maxEl = el;
-//       maxCount = modeMap[el];
-//     }
-//   }
-//   return maxEl;
-// }
-export function opButton (action) {
-  const buttonLeft = document.querySelector('#left-btn');
-  const buttonRight = document.querySelector('#right-btn');
-  buttonLeft.style.display = action;
-  buttonRight.style.display = action;
-}
+
 function removeElement () {
   const block = document.querySelector('.block-days');
   const item = document.querySelectorAll('#day');
@@ -232,21 +246,4 @@ function removeElement () {
   });
   block.removeChild(title);
   block.removeChild(day);
-}
-export function btnClick (side) {
-  if (side === 'left') {
-    if (offset > 0) {
-      offset--;
-    } else {
-      offset = 2;
-    }
-  } else {
-    if (offset < 2) {
-      offset++;
-    } else {
-      offset = 0;
-    }
-  }
-  removeElement();
-  renderDays(undefined);
 }
