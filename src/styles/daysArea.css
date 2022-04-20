@@ -1,0 +1,86 @@
+.block-days{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #666666;
+    width: 350px;
+    height: 140px;
+    padding: 5px;
+    cursor: default;
+}
+.block-days #day{
+    width: 45px;
+    height: 90px;
+}
+.block-days #title{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #666666;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+}
+.block-days img{
+    width: 40px;
+    height: 40px;
+    
+}
+.block-days #temp{
+    width: 40px;
+    text-align: center;
+    font-size: 12px;
+}
+.block-days #start-time{
+    width: 40px;
+    color: #448899;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.block-days #time-to{
+    width: 40px;
+    color: #448899;
+    text-align: center;
+    font-size: 8px;
+    font-weight: bold;
+}
+.block-days #end-time{
+    width: 40px;
+    color: #448899;
+    text-align: center;
+    font-size: 12px;
+}
+.block-days #left-btn{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 76px;
+    left: 5px;
+    display: none;
+    background-image: url("left.png");
+    background-size: 25px 25px;
+    cursor: pointer;
+}
+.block-days #right-btn{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 76px;
+    right: 5px;
+    display: none;
+    background-image: url("right.png");
+    background-size: 25px 25px;
+    cursor: pointer;
+}
+.block-days #title-time{
+    position: absolute;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #666666;
+    top: 6px;
+    right: 30px;
+}

@@ -34,3 +34,24 @@ export const getWeeklyApi = async () => {
     console.warn(err);
   }
 };
+
+export const getDaysApi = async(params) =>{
+  try{
+    const FORECAST_TWO_DAYS_TAIPEI = "F-D0047-061";
+    const apiUrl = new URL(`/api/v1/rest/datastore/${FORECAST_TWO_DAYS_TAIPEI}`, apiHost);
+    apiUrl.search = new URLSearchParams(params);
+    apiUrl.searchParams.append('Authorization', apiAuth);
+    const res = await fetch(apiUrl.toString());
+    const response = await res.json();
+  
+    if(response.success == 'true'){
+return response;
+}
+    else{
+      throw new Error('There is something wrong with Api.');
+    }
+  }
+  catch(exception){
+    console.warn(exception);
+  }
+};
