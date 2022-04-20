@@ -3,6 +3,7 @@ import { rendenWeekly } from './weeklyArea.js';
 import { renderHours } from './hoursArea.js';
 import './styles/global.css';
 import './styles/weeklyArea.css';
+import './styles/hoursArea.css';
 
 const getHours = async () => {
   const res = await getHoursApi();
