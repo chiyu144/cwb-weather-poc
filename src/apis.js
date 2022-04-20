@@ -53,3 +53,20 @@ export const getDaysApi = async (params) => {
     console.warn(exception);
   }
 };
+
+
+export const getOzoneApi = async () => {
+  try {
+    const apiUrl = new URL('/api/v1/rest/datastore/O-A0006-002', apiHost);
+    apiUrl.searchParams.append('Authorization', apiAuth);
+    const res = await fetch(apiUrl.toString(), { method: 'GET' });
+    const Ozonedata = await res.json();
+    if (Ozonedata.success === 'true') {
+      return Ozonedata;
+    } else {
+      throw new Error('There is something wrong with Api.');
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
