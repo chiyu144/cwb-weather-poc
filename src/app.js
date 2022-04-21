@@ -38,11 +38,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   // arg can be replaced with any valid location Name
   const DaysRecords = await getDays('大安區');
   renderDays(DaysRecords);
-
   const OzoneRecords = await getOzone();
-  renderOzone(OzoneRecords)
-
+  renderOzone(OzoneRecords);
 });
-
-
- 

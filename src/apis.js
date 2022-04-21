@@ -54,8 +54,6 @@ export const getDaysApi = async (params) => {
   }
 };
 
-
-
 export const getOzoneApi = async () => {
   try {
     const apiUrl = new URL('/api/v1/rest/datastore/O-A0006-002', apiHost);
