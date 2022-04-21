@@ -174,7 +174,7 @@
  
 
 .hamburger{
-
+  opacity: 0.65;
   width: 30px;
   justify-content: center;
   align-items: center;
