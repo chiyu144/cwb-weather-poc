@@ -1,6 +1,3 @@
-import './styles/jay.css';
-
-
 export function renderOzone(OzoneRecords) {
 
 
