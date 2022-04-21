@@ -21,29 +21,12 @@ class ForecastDays {
     this._afterTomorrowT = resultT[2];
   }
 
-  getDate (date, value) {
-    const _date = new Date(date);
-    if (value === 'tomorrow') {
-      _date.setDate(_date.getDate() + 1);
-    } else {
-      _date.setDate(_date.getDate() + 2);
-    }
-    const result = _date.toISOString().split('T');
-    return result;
-  }
-
   splitWithDate (data, key) {
-    const date = new Date().toLocaleString({ timeZone: 'Asia/Taipei' });
-    const day = date.split(',')[0].split('/');
-    if (day[0].length < 2) {
-      day[0] = '0' + day[0];
-    }
-    if (day[1].length < 2) {
-      day[1] = '0' + day[1];
-    }
-    const todayDate = `${day[2]}-${day[0]}-${day[1]}`;
-    const tomorrowDate = `${day[2]}-${day[0]}-${Number(day[1]) + 1}`;
-    const afterTomorrowDate = `${day[2]}-${day[0]}-${Number(day[1]) + 2}`;
+    const date = new Date().toLocaleDateString('en-CA');
+    const day = date.split('-');
+    const todayDate = `${day[0]}-${day[1]}-${day[2]}`;
+    const tomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 1}`;
+    const afterTomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 2}`;
     const today = []; const tomorrow = []; const afterTomorrow = [];
     data.time.forEach(function (value) {
       const time = value[key];
