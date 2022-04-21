@@ -19,25 +19,31 @@ class ForecastDays {
     this._todayT = resultT[0];
     this._tomorrowT = resultT[1];
     this._afterTomorrowT = resultT[2];
+    this.offsetOneDate = `${new Date(resultT[0][0].dataTime).toLocaleDateString('en-CA')} ～`;
+    this.offsetTwoDate = `${new Date(resultT[1][0].dataTime).toLocaleDateString('en-CA')} ～`;
+    this.offsetThreeDate = `${new Date(resultT[2][0].dataTime).toLocaleDateString('en-CA')} ～`;
   }
 
   splitWithDate (data, key) {
-    const date = new Date().toLocaleDateString('en-CA');
-    const day = date.split('-');
-    const todayDate = `${day[0]}-${day[1]}-${day[2]}`;
-    const tomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 1}`;
-    const afterTomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 2}`;
-    const today = []; const tomorrow = []; const afterTomorrow = [];
-    data.time.forEach(function (value) {
-      const time = value[key];
-      if (time.indexOf(todayDate) !== -1) {
-        today.push(value);
-      } else if (time.indexOf(tomorrowDate) !== -1) {
-        tomorrow.push(value);
-      } else if (time.indexOf(afterTomorrowDate) !== -1) {
-        afterTomorrow.push(value);
-      }
-    });
+    // const date = new Date().toLocaleDateString('en-CA');
+    // const day = date.split('-');
+    // const todayDate = `${day[0]}-${day[1]}-${day[2]}`;
+    // const tomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 1}`;
+    // const afterTomorrowDate = `${day[0]}-${day[1]}-${Number(day[2]) + 2}`;
+    // const today = []; const tomorrow = []; const afterTomorrow = [];
+    // data.time.forEach(function (value) {
+    //   const time = value[key];
+    //   if (time.indexOf(todayDate) !== -1) {
+    //     today.push(value);
+    //   } else if (time.indexOf(tomorrowDate) !== -1) {
+    //     tomorrow.push(value);
+    //   } else if (time.indexOf(afterTomorrowDate) !== -1) {
+    //     afterTomorrow.push(value);
+    //   }
+    // });
+    const today = data.time.slice(0, 8);
+    const tomorrow = data.time.slice(8, 16);
+    const afterTomorrow = data.time.slice(16);
     return [today, tomorrow, afterTomorrow];
   }
 }
@@ -100,11 +106,15 @@ function createTitle () {
   title.textContent = '三小時預報';
   day.setAttribute('id', 'title-time');
   if (offset === 0) {
-    day.textContent = '今天';
+    // day.textContent = '今天';
+    day.textContent = _forecastDays.offsetOneDate;
+    console.log(this);
   } else if (offset === 1) {
-    day.textContent = '明天';
+    // day.textContent = '明天';
+    day.textContent = _forecastDays.offsetTwoDate;
   } else {
-    day.textContent = '後天';
+    // day.textContent = '後天';
+    day.textContent = _forecastDays.offsetThreeDate;
   }
   block.appendChild(title);
   block.appendChild(day);

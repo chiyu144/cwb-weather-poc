@@ -17,9 +17,8 @@
     text-align: center;
     font-size: 15px;
     font-weight: 700;
-    color: #666666;
     position: absolute;
-    left: 6px;
+    left: 10px;
     top: 6px;
 }
 .block-days img{
@@ -80,5 +79,5 @@
     font-size: 15px;
     font-weight: 700;
     top: 6px;
-    right: 30px;
+    right: 10px;
 }
