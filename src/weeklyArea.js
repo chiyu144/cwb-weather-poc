@@ -28,7 +28,7 @@ export function rendenWeekly (weeklyRecords, cityName) {
   document.getElementsByClassName('block block-week')[0].append(WeeklyMid);
 
   const lineChar = document.createElement('canvas');
-  lineChar.setAttribute('id', 'myChart');
+  lineChar.setAttribute('id', 'janeChart');
   WeeklyMid.append(lineChar);
   const WeeeklyDayList = ['日', '一', '二', '三', '四', '五', '六'];
   const weeklyAll = weeklyRecords.locations[0].location;
@@ -84,8 +84,8 @@ export function rendenWeekly (weeklyRecords, cityName) {
     }
   }
 
-  const ctx = document.getElementById('myChart');
-  const myChart = new Chart(ctx, {
+  const ctx = document.getElementById('janeChart');
+  const janeChart = new Chart(ctx, {
     type: 'line', // 圖表類型
     data: {
       // 標題
