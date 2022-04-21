@@ -2,7 +2,6 @@ import { getHoursApi, getWeeklyApi, getDaysApi, getOzoneApi } from './apis.js';
 import { rendenWeekly } from './weeklyArea.js';
 import { renderHours } from './hoursArea.js';
 import { renderDays } from './daysArea.js';
-import { renderOzone } from './ozone.js';
 import './styles/global.css';
 import './styles/weeklyArea.css';
 import './styles/hoursArea.css';

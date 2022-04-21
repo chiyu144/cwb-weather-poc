@@ -33,18 +33,25 @@ class ForecastDays {
   }
 
   splitWithDate (data, key) {
-    const date = new Date();
-    const todayDate = date.toISOString().split('T');
-    const tomorrowDate = this.getDate(date, 'tomorrow');
-    const afterTomorrowDate = this.getDate(date, 'afterTomorrow');
+    const date = new Date().toLocaleString({ timeZone: 'Asia/Taipei' });
+    const day = date.split(',')[0].split('/');
+    if (day[0].length < 2) {
+      day[0] = '0' + day[0];
+    }
+    if (day[1].length < 2) {
+      day[1] = '0' + day[1];
+    }
+    const todayDate = `${day[2]}-${day[0]}-${day[1]}`;
+    const tomorrowDate = `${day[2]}-${day[0]}-${Number(day[1]) + 1}`;
+    const afterTomorrowDate = `${day[2]}-${day[0]}-${Number(day[1]) + 2}`;
     const today = []; const tomorrow = []; const afterTomorrow = [];
     data.time.forEach(function (value) {
       const time = value[key];
-      if (time.indexOf(todayDate[0]) !== -1) {
+      if (time.indexOf(todayDate) !== -1) {
         today.push(value);
-      } else if (time.indexOf(tomorrowDate[0]) !== -1) {
+      } else if (time.indexOf(tomorrowDate) !== -1) {
         tomorrow.push(value);
-      } else if (time.indexOf(afterTomorrowDate[0]) !== -1) {
+      } else if (time.indexOf(afterTomorrowDate) !== -1) {
         afterTomorrow.push(value);
       }
     });
