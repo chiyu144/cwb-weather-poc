@@ -15,6 +15,7 @@
   border-radius: 5px;
   color: var(--color-violet-800);
   border: 1px solid var(--color-violet-800);
+  background-color: var(--color-white);
 }
 .hour-zone > .wx {
   height: 56px;

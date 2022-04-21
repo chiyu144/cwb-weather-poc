@@ -1,17 +1,17 @@
 .block-days{
     display: flex;
     justify-content: left;
-    align-items: center;
     position: relative;
     border-radius: 5px;
     border: 1px solid var(--color-violet-800);
-    height: 140px;
+    height: 164px;
     padding: 5px;
     cursor: default;
+    background-color: var(--color-white);
 }
 .block-days #day{
     width: 45px;
-    height: 90px;
+    margin-top: 27px;
 }
 .block-days #title{
     text-align: center;
