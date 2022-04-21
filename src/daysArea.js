@@ -108,7 +108,6 @@ function createTitle () {
   if (offset === 0) {
     // day.textContent = '今天';
     day.textContent = _forecastDays.offsetOneDate;
-    console.log(this);
   } else if (offset === 1) {
     // day.textContent = '明天';
     day.textContent = _forecastDays.offsetTwoDate;
