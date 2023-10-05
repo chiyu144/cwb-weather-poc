@@ -4,8 +4,8 @@
 - This repository is no longer maintained. The live demo is available only as a screenshot 🖼
 
 #### Live Demo (Screenshot only)
-![localhost_3000_1](https://github.com/chiyu144/cwb-weather-poc/assets/45845170/d5fc0df0-02c2-45ef-aa4d-f18ba5dbacc7)
-![localhost_3000_2](https://github.com/chiyu144/cwb-weather-poc/assets/45845170/ab9a7a7e-507d-4e16-86fb-07bdc3deb6dd)
+![cwb-weather-poc-01](https://github.com/chiyu144/cwb-weather-poc/assets/45845170/d5fc0df0-02c2-45ef-aa4d-f18ba5dbacc7)
+![cwb-weather-poc-02](https://github.com/chiyu144/cwb-weather-poc/assets/45845170/ab9a7a7e-507d-4e16-86fb-07bdc3deb6dd)
 
 #### Front-end Tech Stack
 - Vanilla JavaScript
