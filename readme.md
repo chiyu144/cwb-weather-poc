@@ -1,6 +1,6 @@
 #### CWB Weather POC
-- WeHelp Bootcamp 2022 assigned task.
-- Developed a proof of concept for a Taipei city weather web app within one week, in collaboration with three fellow fullstack trainees.
+- WeHelp Bootcamp 2022 assigned task
+- Developed a proof of concept for a Taipei city weather web app within one week, in collaboration with three fellow fullstack trainees
 - This repository is no longer maintained. The live demo is available only as a screenshot 🖼
 
 #### Live Demo (Screenshot only)
